@@ -1,0 +1,30 @@
+.step {
+    width: 20vw;
+    max-height: 70vh;
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: center;
+    background-color: rgb(66, 65, 65);
+    position: relative;
+    overflow-y: scroll;
+}
+
+.step> .step-title {
+    color: rgb(186, 208, 208);
+    font-style: italic;
+    position: sticky;
+    top: 0%;
+    background-color: rgb(66, 65, 65);
+    width: 100%;
+    text-align: center;
+    /* margin-top: 0; */
+
+}
+
+.tasks-summary {
+    display: flex;
+    gap: 1vw;
+    min-height: 70vh;
+}

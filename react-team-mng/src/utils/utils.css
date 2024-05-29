@@ -1,0 +1,21 @@
+.dialog-slide {
+    background-color: rgb(84, 83, 83);
+}
+
+.btn {
+    background-color: rgb(66, 65, 65);
+    color: rgb(186, 208, 208);
+    border: none;
+    border-radius: 5%;
+    height: 5vh;
+    font-size: 15px;
+    width: 100%;
+    font-style: italic;
+}
+
+.btn:hover {
+    background-color: rgb(84, 83, 83);
+    color: rgb(186, 208, 208);
+    border: none;
+}
+
