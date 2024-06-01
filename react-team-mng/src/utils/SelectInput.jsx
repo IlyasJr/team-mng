@@ -6,13 +6,25 @@ import FormControl from '@mui/material/FormControl';
 import Box from '@mui/material/Box';
 
 
-export default function SelectInput({handleChange, value, name, options, label}) {
+export default function SelectInput({handleChange, value, name, options, label, color, backgroundColor}) {
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box sx={{ minWidth: 120, backgroundColor: backgroundColor, height: "5vh", alignContent: 'center'}}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">{label}</InputLabel>
+        <InputLabel id="demo-simple-select-label" style={{color}}>{label}</InputLabel>
         <Select
-          labelId="demo-simple-select-label"
+          sx={{
+            boxShadow: "none",
+            ".MuiOutlinedInput-notchedOutline": { border: 0 },
+            "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+              {
+                border: 0,
+              },
+            "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+              {
+                border: 0,
+              },
+          }}
+          labelId="none"
           name= {name}
           id={name}
           value={value}

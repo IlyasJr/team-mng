@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './task.css'
+import { Context } from '../../context/AppContext'
+import DialogSlide from '../../utils/DialogSlide'
+import TaskDetail from '../task detail/TaskDetail'
+
 
 const Task = ({task}) => {
   let {title, status, priority, number} = task
+  let {setOpenTask} = useContext(Context)
   return (
     <>
-    <div className='task'>
+    <div className='task' onClick={() => setOpenTask(true)}>
         <div className="task-title">
             {title} 
         </div>
@@ -19,6 +24,9 @@ const Task = ({task}) => {
            </div>
         </div>
     </div>
+    <DialogSlide title='Add task' action= 'update'>
+      <TaskDetail task = {task}/>
+    </DialogSlide>
     </>
   )
 }

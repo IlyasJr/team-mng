@@ -1,0 +1,38 @@
+.filters {
+    color: rgb(66, 65, 65);
+    display: flex;
+    align-content: center; 
+    gap: 2vw;
+    flex: 4;
+}
+.filter-header {
+    max-height: 10vh;
+    display: flex;
+    gap: 15vw;
+    background-color: rgb(186, 208, 208);
+    align-content: center; 
+    padding: 2vh 5vw 2vh 5vw;
+    margin-bottom: 5vh;
+    
+}
+
+.add {
+    flex : 1
+}
+
+.filter-item{
+    flex : 1;
+}
+
+.filter-btn-collection{
+    flex : 2;
+    display: flex;
+    gap: 1vw
+}
+
+h3 {
+    font-style: italic;
+    font-size: 20px;
+    align-self: start;
+    margin: auto
+}

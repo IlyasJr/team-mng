@@ -1,68 +1,62 @@
 import React, { useContext } from 'react'
-import { useFormik } from 'formik';
 import SelectInput from '../../utils/SelectInput';
 import TextField from '@mui/material/TextField';
 import './addTaskForm.css'
 import AppButton from '../../utils/AppButton';
 import { Context } from '../../context/AppContext';
 
-
 const AddTaskForm = () => {
-    let {tasks, setTasks, currentUser, nextTaskNumber, setNextTaskNumber} = useContext(Context)
-
-    const formik = useFormik({
-        initialValues: {
-          title: '',
-          description: '',
-          type: '',
-          priority: ''
-        },
-        onSubmit: values => {
-        setTasks([...tasks, {
-            ...values,
-            status : 'IN DESIGN',
-            creator: currentUser,
-            creationDate : new Date(),
-            number : `PROJECT_NAME_${nextTaskNumber}`
-        }]) 
-        setNextTaskNumber(n=> n+1)
-        },
-      });
-
+    let { formik } = useContext(Context)
+    let {handleSubmit, errors, touched, handleChange, values } = formik
+    
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={handleSubmit}>
+        <div className="field">
+        {errors.title && touched.title && <h6>{errors.title}</h6>}
         <TextField
          id="title"
          name="title"
          label="Task title"
          variant="outlined"
-         onChange={formik.handleChange}
-         value={formik.values.title}
+         onChange={handleChange}
+         value={values.title}
          />
+        </div>
+       <div className="field">
+       {errors.type && touched.type && <h6>{errors.type}</h6>}
+       <SelectInput
+         name="type"
+         handleChange={handleChange}
+         value={values.type}
+         label="Task type"
+         options={['Bug', 'Meeting', 'Story', 'sub-Bug', 'sub-story']}
+         color="rgb(66, 65, 65)"
+         backgroundColor="white"
+        />    
+       </div>
+        <div className="field">
+        {errors.priority && touched.priority &&  <h6>{errors.priority}</h6>}
+        <SelectInput
+         name="priority"
+         handleChange={handleChange}
+         value={values.priority}
+         label="Task priority"
+         options={['Low', 'Normal', 'High', 'Highest']}
+         color="rgb(66, 65, 65)"
+         backgroundColor="white"
+        />  </div> 
+        <div className="field">
+        {errors.description && touched.description && <h6>{errors.description}</h6>}
          <TextField
          name="description"
          label="Task description"
          variant="outlined"
-         onChange={formik.handleChange}
-         value={formik.values.description}
+         onChange={handleChange}
+         value={values.description}
          multiline
-         maxRows={6}
-         rows={4}
+         rows={8}
          />
-       <SelectInput
-         name="type"
-         handleChange={formik.handleChange}
-         value={formik.values.type}
-         label="Task type"
-         options={['Bug', 'Meeting', 'Story', 'sub-Bug', 'sub-story']}
-        />   
-        <SelectInput
-         name="priority"
-         handleChange={formik.handleChange}
-         value={formik.values.priority}
-         label="Task priority"
-         options={['Low', 'Normal', 'High', 'Highest']}
-        />   
+        </div>
         <AppButton text={"Submit"}/>
     </form>
   )

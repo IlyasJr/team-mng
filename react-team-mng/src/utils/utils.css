@@ -1,5 +1,14 @@
 .dialog-slide {
+    text-align: center;
+
+}
+
+.dialog-title{
     background-color: rgb(84, 83, 83);
+    text-align: center;
+    font-style: italic;
+    font-size: 20px;
+    color: rgb(186, 208, 208);
 }
 
 .btn {
@@ -19,3 +28,11 @@
     border: none;
 }
 
+.dialog-footer{
+    display: flex;
+    width: 100%;
+    margin-bottom: 5vh;
+    gap : 2vw;
+    margin: auto 5vw 10vh auto;
+    width: 20%;
+}
